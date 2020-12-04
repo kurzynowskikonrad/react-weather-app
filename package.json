@@ -1,0 +1,38 @@
+{
+  "name": "full-stack-react-app",
+  "version": "1.0.0",
+  "description": "full stack react app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client": "npm start --prefix client", 
+    "server": "nodemon server",
+    "start": "node server",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kondor1554/full-stack-react-app.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Konrad Kurzynowski",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kondor1554/full-stack-react-app/issues"
+  },
+  "homepage": "https://github.com/kondor1554/full-stack-react-app#readme",
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
+  }
+}
