@@ -11,6 +11,15 @@ class Cities {
         });
     }
 
+    // check for duplicate cities in db
+    // static checkDuplicate (city, callback) {
+    //     db.query('SELECT city_name from cities where city_name =  ($1)', [city], function (err, res) {
+    //         if (err.error) 
+    //             return callback(err)
+    //         callback(res)
+    //     })
+    // }
+
     // insert new city into postgres
     static insert (city, callback) {
         db.query('INSERT INTO cities (city_name) VALUES ($1)', [city], function (err, res) {

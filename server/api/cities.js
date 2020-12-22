@@ -18,6 +18,12 @@ router.get('/', function (req, res) {
 // insert new city on HTTP POST
 router.post('/', function (req, res) {
     var city = req.body.city;
+ 
+    // Cities.checkDuplicate(city, function (err, result) {
+    //     if (err)
+    //         return res.json(err)
+    //     console.log(result)
+    // })
 
     Cities.insert(city, function (err, result) {
         if (err)

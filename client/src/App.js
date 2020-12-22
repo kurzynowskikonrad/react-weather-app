@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Banner from 'react-js-banner';
 
 import {
   Container,
@@ -16,6 +17,7 @@ import {
 
 import Weather from './weather';
 
+// the webpage seen on localhost:3000
 class App extends Component {
   constructor(props) {
     super(props);
@@ -23,10 +25,12 @@ class App extends Component {
     this.state = {
       weather: null,
       cityList: [],
-      newCityName: ''
+      newCityName: '',
+      message: ''
     };
   }
   
+  // fetch cities data from api
   getCityList = () => {
     fetch('/api/cities')
     .then(res => res.json())
@@ -36,11 +40,16 @@ class App extends Component {
     });
   };
   
+  
   handleInputChange = (e) => {
     this.setState({ newCityName: e.target.value });
   };
 
+  // add city to db for api calls
   handleAddCity = () => {
+    if (this.state.newCityName === '' || this.state.newCityName === ' ' || this.state.newCityName !== this.state.newCityName.toLowerCase()) {
+      this.setState({ message: 'Cities must start with a capital letter.' })
+    }
     fetch('/api/cities', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
@@ -91,7 +100,8 @@ class App extends Component {
                 <InputGroupAddon addonType="append">
                   <Button color="primary" onClick={this.handleAddCity}>Add City</Button>
                 </InputGroupAddon>
-            </InputGroup>
+              </InputGroup>
+              <div className="result">{ this.state.message }</div>
             </Jumbotron>
           </Col>
         </Row>

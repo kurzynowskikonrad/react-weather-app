@@ -1,6 +1,7 @@
 import React from 'react';
 import { Row, Col, Table } from 'reactstrap';
 
+// return Weather component which displays weather specifics
 const Weather = (props) => {
     const { data } = props;
 
@@ -35,6 +36,10 @@ const Weather = (props) => {
                         <tr>
                             <td>Max Temp</td>
                             <td>{Math.floor(data.main.temp_max)}&deg;F</td>
+                        </tr>
+                        <tr>
+                            <td>Feels Like</td>
+                            <td>{Math.floor(data.main.feels_like)}&deg;F</td>
                         </tr>
                     </tbody>
                 </Table>
