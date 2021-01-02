@@ -47,8 +47,18 @@ class App extends Component {
 
   // add city to db for api calls
   handleAddCity = () => {
-    if (this.state.newCityName === '' || this.state.newCityName === ' ' || this.state.newCityName !== this.state.newCityName.toLowerCase()) {
-      this.setState({ message: 'Cities must start with a capital letter.' })
+    // check for properly formatted and correct input
+    if (this.state.newCityName === null || this.state.newCityName.match(/^ *$/) !== null) {
+      this.setState({ message: 'Cannot input blank city.' })
+      return
+    }
+    if (this.state.newCityName[0] !== this.state.newCityName[0].toUpperCase()) {
+      this.setState({ message: 'City names must start with a capital.' })
+      return
+    }
+    if (this.state.cityList.includes(this.state.newCityName)) {
+      this.setState({ message: 'No duplicate city names allowed.' })
+      return
     }
     fetch('/api/cities', {
       method: 'post',
