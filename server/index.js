@@ -31,7 +31,7 @@ app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}!!`);
 });
 
-// use database class to query
+// query db to verify connection
 db.query('SELECT NOW()', (err, res) => {
     if (err.error) 
         return console.log(err.error);
