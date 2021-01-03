@@ -38,8 +38,11 @@
     "jquery": "^3.5.1",
     "pg": "^8.5.1",
     "popper.js": "^1.16.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-js-banner": "^0.5.2",
     "react-strap": "0.0.1",
+    "reactstrap": "^8.8.1",
     "request": "^2.88.2",
     "request-promise": "^4.2.6"
   }
