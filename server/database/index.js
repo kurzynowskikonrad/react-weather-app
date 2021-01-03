@@ -9,7 +9,7 @@ class Database {
         // initialize private pool interface for db connection
         this._pool = new Pool({
             connectionString: CONNECTION_STRING,
-            ssl: SSL
+            ssl: { SSL, rejectUnauthorized: false }
         });
 
         // basic error handling if connection to postgres does not work
