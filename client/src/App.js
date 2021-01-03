@@ -40,7 +40,6 @@ class App extends Component {
     });
   };
   
-  
   handleInputChange = (e) => {
     this.setState({ newCityName: e.target.value });
   };
@@ -89,7 +88,6 @@ class App extends Component {
     this.getCityList();
   }
   
-  
   render() {
     return (
       <Container fluid className="centered">
@@ -125,7 +123,6 @@ class App extends Component {
                 { this.state.cityList.map((city, i) => <option key={i}>{city}</option>) }
               </Input>
             </FormGroup>
-
           </Col>
         </Row>
         <Weather data={this.state.weather}/>
