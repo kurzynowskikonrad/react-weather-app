@@ -7,6 +7,8 @@ var SSL = process.env.NODE_ENV === 'production';
 class Database {
     constructor () {
         // initialize private pool interface for db connection
+        // pg v8.x breaks heroku b/c it uses a self-signed certificate
+        // rejectUnauthorized property allows the self signed cert
         this._pool = new Pool({
             connectionString: CONNECTION_STRING,
             ssl: { SSL, rejectUnauthorized: false }
